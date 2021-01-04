@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store";
 
-store.subscribe(() => {
+const unscribe = store.subscribe(() => {
   console.log("Store changed!", store.getState());
 });
 
@@ -15,6 +15,8 @@ store.dispatch({
     description: "Bug1",
   },
 });
+
+unscribe();
 
 store.dispatch({
   type: "bugRemoved",
